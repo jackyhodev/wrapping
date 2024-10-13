@@ -77,7 +77,7 @@ jobs:
           echo $GPG_PASSPHRASE > /home/runner/work/secrets/passphrase.file
       - name: debug
         run: |
-          ls /home/runner/work
+          ls /home/runner/work/secrets
           touch /home/runner/work/secrets/galasa.gpg
       - name: Copy GPG key
         env:
