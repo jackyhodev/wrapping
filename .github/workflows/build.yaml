@@ -75,6 +75,7 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: |
           echo $GPG_PASSPHRASE > /home/runner/work/secrets/passphrase.file
+
       - name: Copy GPG key
         env:
           GPG_KEY_BASE64: ${{ secrets.GPG_KEY }}
