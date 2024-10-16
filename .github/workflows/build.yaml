@@ -19,7 +19,7 @@ on:
       isMainOrRelease:
         description: 'This build is for the main branch or a release (set to "false" for development branch builds)'
         required: true
-        default: 'true'
+        default: 'false'
         type: choice
         options:
         - 'true'
@@ -29,7 +29,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  NAMESPACE: galasa-dev
+  NAMESPACE: jackyhodev
   BRANCH: ${{ github.ref_name }}
 
 jobs:
