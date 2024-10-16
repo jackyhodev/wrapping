@@ -144,7 +144,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: jackydevacc
-          password: ${{ secrets.DOCKER_TOKEN }}
+          password: ${{ secrets.PERSONAL_TOKEN }}
 
       - name: Extract metadata for Wrapping image
         id: metadata
