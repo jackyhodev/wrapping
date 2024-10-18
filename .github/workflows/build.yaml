@@ -192,14 +192,14 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: |
-          gh workflow run build.yaml --repo https://github.com/galasa-dev/gradle
+          gh workflow run build.yaml --repo https://github.com/jackyhodev/gradle
 
       - name: Trigger Gradle workflow dispatch event with GitHub CLI
         if: github.event_name == 'workflow_dispatch'
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: |
-          gh workflow run build.yaml --repo https://github.com/galasa-dev/gradle --ref ${{ env.BRANCH }} -f jacocoEnabled=${{ inputs.jacocoEnabled }} -f isMainOrRelease=${{ inputs.isMainOrRelease }}
+          gh workflow run build.yaml --repo https://github.com/jackyhodev/gradle --ref ${{ env.BRANCH }} -f jacocoEnabled=${{ inputs.jacocoEnabled }} -f isMainOrRelease=${{ inputs.isMainOrRelease }}
 
   report-failure:
     name: Report failure in workflow
