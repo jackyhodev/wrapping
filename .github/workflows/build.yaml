@@ -168,18 +168,18 @@ jobs:
 
       # Recycle the development Maven registry app in ArgoCD
       # Authenticate using a token passed in as an environment variable
-      - name: Recycle application in ArgoCD
-        env: 
-          ARGOCD_AUTH_TOKEN: ${{ secrets.ARGOCD_TOKEN }}
-        run: |
-          docker run --env ARGOCD_AUTH_TOKEN=${{ env.ARGOCD_AUTH_TOKEN }} --rm -v ${{ github.workspace }}:/var/workspace ghcr.io/jackyhodev/argocdcli:main app actions run ${{ env.BRANCH }}-maven-repos restart --kind Deployment --resource-name wrapping-${{ env.BRANCH }} --server argocd.galasa.dev
+      #- name: Recycle application in ArgoCD
+        #env: 
+          #ARGOCD_AUTH_TOKEN: ${{ secrets.ARGOCD_TOKEN }}
+        #run: |
+          #docker run --env ARGOCD_AUTH_TOKEN=${{ env.ARGOCD_AUTH_TOKEN }} --rm -v ${{ github.workspace }}:/var/workspace ghcr.io/jackyhodev/argocdcli:main app actions run ${{ env.BRANCH }}-maven-repos restart --kind Deployment --resource-name wrapping-${{ env.BRANCH }} --server argocd.galasa.dev
 
       # Wait for the application to show as healthy in ArgoCD
-      - name: Wait for app health in ArgoCD
-        env: 
-          ARGOCD_AUTH_TOKEN: ${{ secrets.ARGOCD_TOKEN }}
-        run: |
-          docker run --env ARGOCD_AUTH_TOKEN=${{ env.ARGOCD_AUTH_TOKEN }} --rm -v ${{ github.workspace }}:/var/workspace ghcr.io/jackyhodev/argocdcli:main app wait ${{ env.BRANCH }}-maven-repos --resource apps:Deployment:wrapping-${{ env.BRANCH }} --health --server argocd.galasa.dev
+      #- name: Wait for app health in ArgoCD
+        #env: 
+          #ARGOCD_AUTH_TOKEN: ${{ secrets.ARGOCD_TOKEN }}
+        #run: |
+          #docker run --env ARGOCD_AUTH_TOKEN=${{ env.ARGOCD_AUTH_TOKEN }} --rm -v ${{ github.workspace }}:/var/workspace ghcr.io/jackyhodev/argocdcli:main app wait ${{ env.BRANCH }}-maven-repos --resource apps:Deployment:wrapping-${{ env.BRANCH }} --health --server argocd.galasa.dev
 
   trigger-gradle-workflow:
     name: Trigger Gradle workflow
